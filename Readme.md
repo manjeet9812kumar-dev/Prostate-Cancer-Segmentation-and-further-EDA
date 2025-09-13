@@ -1,9 +1,9 @@
 # PANDA Prostate Tumor Segmentation 
 ## Results 
-![](Images/Tumor_Results)
+![](Images/Tumor_Results.png)
 ## TL;DR
 - **Dataset:** [PANDA (Prostate cANcer graDe Assessment)](https://www.kaggle.com/competitions/prostate-cancer-grade-assessment)  
-- **Goal:** segment **cancer** (aka malignant tumor) pixels vs non-cancer  
+- **Goal:** segment **cancer** pixels vs non-cancer  
 - **Core functions to look at:**
   - `find_one_tumor_example()` – picks one slide that actually has tumor
   - `tumor_bool_from_gray(mask_gray)` – converts raw mask labels → **binary cancer mask**
