@@ -110,7 +110,7 @@ This helps to eyeball false positives/negatives right away.
 
 ---
 
-## 8) (Optional) Slide‑level grading with CNN+MIL
+## 8) Slide‑level grading with CNN+MIL
 When you want **ISUP grade** or simple **cancer present/absent** per slide (no pixel masks needed):  
 - Use your heatmap to pick **K tumor‑likely patches**  
 - Extract features with a CNN and combine via **Attention MIL** (class `MILNet`)  
@@ -120,48 +120,4 @@ When you want **ISUP grade** or simple **cancer present/absent** per slide (no p
   - `MILNet.forward(bag)` – returns `(logits, attention_weights, feats)`
 
 **Segmentation + MIL** combo works great: segmentation finds “where”, MIL decides slide label.
-
----
-
-## How to run (short recipe)
-1. Open Kaggle notebook (GPU).  
-2. Run the single‑snippet L0 pipeline (it creates `img/`, `msk/`, csvs, and trains).  
-3. Run the **heatmap & quant** cell to get tumor burden and colored heatmaps.  
-4. Optional: run the **MIL snippet** if you want slide ISUP grading demo.
-
----
-
-## Tips & gotchas
-- **Levels/scale:** LEVEL=0 has best detail; otherwise LEVEL=1 is faster.  
-- **Threshold:** don’t stick to 0.5; fit on validation to maximize Dice/F1.  
-- **Class mapping:** always check `np.unique(mask_gray)` before training.  
-- **Imbalance:** add Dice loss, sample more positives, or use hard‑negative mining later.  
-- **Stain variance:** add HSV/brightness jitter aug if you expand beyond one site.  
-- **Memory:** reduce BATCH_SIZE or tile stride if you run out of VRAM.
-
----
-
-## FAQ
-**Q: Are we detecting tumor or cancer?**  
-A: In this repo, “tumor” means **cancer** pixels. Benign tissue is negative. See `tumor_bool_from_gray(...)` mapping.
-
-**Q: Is the heatmap a model?**  
-A: No. The **probability map** comes from the model; heatmap is just a **colormap** on those probabilities.
-
-**Q: Why some slides have no cancer?**  
-A: PANDA includes benign slides. If `np.unique(mask_gray)` has no tumor classes, it’s benign—don’t worry, it’s expected.
-
----
-
-## Credits
-- PANDA dataset authors & institutions.  
-- OpenSlide, PyTorch, Torchvision.  
-- Thanks to open‑source community for ideas, we adapted parts in a very pragmatic way.
-
----
-
-## Changelog (mini)
-- v0.1 — first cut: L0 patching, DeepLabV3, heatmap & quant, simple MIL demo
-- v0.2 — docs cleanup (still some grammar, cuz I’m not a robot lol)
-
 
