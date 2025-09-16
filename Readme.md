@@ -65,13 +65,11 @@ We store PNGs and a **manifest CSV** for training/val.
 
 ---
 
-## 4) Training (DeepLabV3)
+## 4) Training 
 - Model: **DeepLabV3-ResNet50** (binary head)  
 - Loss: **BCE + Dice** (good for class imbalance)  
 - Data: `PatchSet` yields `(image, mask)` tensors in `[0,1]`  
 - Loop: `run_epoch(dataloader, train=True/False)` prints total loss + approx Dice
-
-You can train at **LEVEL=0** (full-res) or lighter levels. L0 is slower but sharper.
 
 ---
 
