@@ -37,7 +37,6 @@ Patches names contains coords like `SID_x1234_y5678.png` so its easy to trace ba
   - Karolinska: tumor class = **2**  
 Everything else (0,1,2 benign etc.) becomes non-cancer.
 
-> If your sample looks all green before, it was benign class being visualized. Binary mapping fixes that.
 
 ---
 
@@ -61,7 +60,6 @@ Coordinates are mapped with:
 So mask patch lines up with image patch.  
 We store PNGs and a **manifest CSV** for training/val.
 
-> Tissue filter uses `tissue_mask_rgb(...)`. It **only** avoids glass/blank, it’s not a labeler.
 
 ---
 
