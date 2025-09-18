@@ -1,7 +1,7 @@
 # PANDA Prostate Tumor Segmentation 
 ## Results 
 ![](Images/output2.png)
-## TL;DR
+##
 - **Dataset:** [PANDA (Prostate cANcer graDe Assessment)](https://www.kaggle.com/competitions/prostate-cancer-grade-assessment)  
 - **Goal:** segment **cancer** pixels vs non-cancer  
 - **Core functions to look at:**
