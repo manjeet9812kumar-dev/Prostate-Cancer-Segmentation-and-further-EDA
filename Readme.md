@@ -1,5 +1,5 @@
 # PANDA Prostate Tumor Segmentation 
-## Results (Comparision of unet vs deeplab V1 / V2 / V3 / V3+
+## Results (Comparision of unet vs deeplab V1 / V2 / V3 / V3+)
 ![](Images/models_comparision_output.png)
 ##
 - **Dataset:** [PANDA (Prostate cANcer graDe Assessment)](https://www.kaggle.com/competitions/prostate-cancer-grade-assessment)  
